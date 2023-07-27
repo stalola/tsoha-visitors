@@ -5,7 +5,7 @@ from os import getenv
 from sqlalchemy.sql import text
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL")
+app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL").replace("://", "ql://", 1)
 db = SQLAlchemy(app)
 
 @app.route("/")
